@@ -14,7 +14,14 @@ COPY --chown=ffpy:ffpy ./requirements.txt .
 RUN python3 -m venv venv
 RUN /home/ffpy/venv/bin/pip install -r requirements.txt
 
-COPY ./plot_fp.ipynp .
+COPY ./plot_fp.ipynb .
+USER root
+RUN chmod 0755 /home/ffpy/plot_fp.ipynb
+USER ffpy
+
+RUN /home/ffpy/venv/bin/jupyter trust plot_fp.ipynb
+
 
 EXPOSE 8000
-CMD ["voila", "--no-browser",  "--port", "8000", "plot_fp.ipynp"]
+
+CMD ["/home/ffpy/venv/bin/voila", "--no-browser",  "--port=8000", "/home/ffpy/plot_fp.ipynb"]
