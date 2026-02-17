@@ -4,4 +4,3 @@ xarray
 netcdf4
 matplotlib
 ipywidgets
-halo
