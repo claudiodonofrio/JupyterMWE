@@ -1,0 +1,11 @@
+# gitignore file for Jupyter notebooks and related files
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/ 
+# Ignore Jupyter notebook metadata files
+*.ipynb_metadata
+# Ignore Jupyter notebook output files  
+*.ipynb_output
+
+
+#ignore .venv
+.venv/  
